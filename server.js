@@ -16,12 +16,8 @@ MongoDBUtil.init();
 
 var app=express();
 
-const corsOptions ={
-   origin:'*', 
-   credentials:true,            //access-control-allow-credentials:true
-   optionSuccessStatus:200,
-}
-app.use(cors(corsOptions))
+
+app.use(cors())
 app.use(logger('dev'));
 createRoles();
 app.use(express.json());
