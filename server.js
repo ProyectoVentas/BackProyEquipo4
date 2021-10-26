@@ -17,7 +17,16 @@ MongoDBUtil.init();
 var app=express();
 
 
-app.use(cors())
+app.use(
+    cors({
+      origin: [
+        "http://localhost:3000",
+        "https://proyectominticfront4.herokuapp.com/"
+      ],
+      methods: ["GET", "HEAD", "POST", "DELETE", "PUT", "PATCH", "OPTIONS"],
+      credentials: true //allow setting of cookies
+    })
+  );
 app.use(logger('dev'));
 createRoles();
 app.use(express.json());
@@ -31,8 +40,8 @@ app.use('/api/ventas', require('./routes/ventas'))
 ////error handler last middleware
 app.use(errorHandler)
 
-//const PORT= process.env.PORT || 3001;
+const PORT= process.env.PORT || 3001;
 
-//app.listen(PORT,()=>console.log(`server running on port ${PORT}`));
+app.listen(PORT,()=>console.log(`server running on port ${PORT}`));
 
 module.exports= app;
