@@ -23,8 +23,16 @@ app.use(
         "http://localhost:3000",
         "https://proyectominticfront4.herokuapp.com/"
       ],
-      methods: ["GET", "HEAD", "POST", "DELETE", "PUT", "PATCH", "OPTIONS"],
-      credentials: true //allow setting of cookies
+     
+      
+      allowedOriginsPatterns: [],
+      allowedHeaders:['*'],
+      allowedMethods:['*'],
+      exposedHeaders: [],
+      maxAg: 0,
+      credentials: true, //allow setting of cookies,
+  
+
     })
   );
 app.use(logger('dev'));
