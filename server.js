@@ -17,24 +17,7 @@ MongoDBUtil.init();
 var app=express();
 
 
-app.use(
-    cors({
-      origin: [
-        "http://localhost:3000",
-        "https://proyectominticfront4.herokuapp.com/"
-      ],
-     
-      
-      allowedOriginsPatterns: [],
-      allowedHeaders:['*'],
-      allowedMethods:['*'],
-      exposedHeaders: [],
-      maxAg: 0,
-      credentials: true, //allow setting of cookies,
-  
-
-    })
-  );
+app.use(cors());
 app.use(logger('dev'));
 createRoles();
 app.use(express.json());
